@@ -7,10 +7,8 @@ spec_builder = Jasmine::SpecBuilder.new(jasmine_config)
 
 should_stop = false
 
-Spec::Runner.configure do |config|
-  config.after(:suite) do
-    spec_builder.stop if should_stop
-  end
+RSpec.configuration.after(:suite) do
+  spec_builder.stop if should_stop
 end
 
 spec_builder.start

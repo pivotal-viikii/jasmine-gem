@@ -2,12 +2,13 @@ $LOAD_PATH.unshift File.expand_path("#{File.dirname(__FILE__)}/lib")
 require "bundler"
 Bundler.setup
 
-require 'spec'
-require 'spec/rake/spectask'
+require 'rspec'
+require 'rspec/core/rake_task'
+
 
 desc "Run all examples"
-Spec::Rake::SpecTask.new('spec') do |t|
-  t.spec_files = FileList['spec/**/*.rb']
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = 'spec/**/*.rb'
 end
 
 namespace :jasmine do

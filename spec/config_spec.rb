@@ -8,7 +8,7 @@ describe Jasmine::Config do
       temp_dir_before
 
       Dir::chdir @tmp
-      system 'rails rails-project'
+      system 'rails new rails-project'
       Dir::chdir 'rails-project'
 
       FileUtils.cp_r(File.join(@root, 'generators'), 'vendor')
@@ -267,7 +267,7 @@ describe Jasmine::Config do
       Jasmine.should_receive(:kill_process_group).with(200)
       config.stop_servers
     end
-    
+
     it "should send kill with SIGINT to WEBrick" do
       Rack::Handler.stub!(:default).and_return(Rack::Handler::WEBrick)
       config = Jasmine::Config.new
