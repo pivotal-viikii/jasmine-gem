@@ -49,7 +49,6 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    nokogiri (1.4.2)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.9)
@@ -78,9 +77,6 @@ GEM
     rspec-expectations (2.0.0.beta.19)
       diff-lcs (>= 1.1.2)
     rspec-mocks (2.0.0.beta.19)
-    rspec-rails (2.0.0.beta.19)
-      rspec (= 2.0.0.beta.19)
-      webrat (>= 0.7.2.beta.1)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     selenium-client (1.2.18)
@@ -90,10 +86,6 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.22)
-    webrat (0.7.2.beta.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
@@ -106,6 +98,6 @@ DEPENDENCIES
   rack-test
   rails (= 3.0.0.rc)
   rake (= 0.8.7)
-  rspec-rails (= 2.0.0.beta.19)
+  rspec (= 2.0.0.beta.19)
   selenium-client (= 1.2.18)
   selenium-rc (= 2.2.1)

@@ -14,7 +14,6 @@ namespace :jasmine do
       t.verbose = true
       t.pattern = ['spec/javascripts/support/jasmine_runner.rb']
     end
-
     Rake::Task["jasmine_continuous_integration_runner"].invoke
   end
 

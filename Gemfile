@@ -1,5 +1,4 @@
 source :gemcutter
-source 'http://rubygems.org'
 
 gem "rake", "0.8.7"
 gem "jeweler", "1.4.0"
