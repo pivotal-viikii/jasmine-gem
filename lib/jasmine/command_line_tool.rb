@@ -24,7 +24,11 @@ module Jasmine
 
     def process(argv)
       if argv[0] == 'init'
-        require 'ftools'
+        if RUBY_VERSION < '1.9'
+          require 'ftools'
+        else
+          require 'fileutils'
+        end
         File.makedirs('public/javascripts')
         File.makedirs('spec/javascripts')
         File.makedirs('spec/javascripts/support')
