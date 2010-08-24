@@ -42,7 +42,8 @@ Gem::Specification.new do |s|
      "lib/jasmine/selenium_driver.rb",
      "lib/jasmine/server.rb",
      "lib/jasmine/spec_builder.rb",
-     "lib/jasmine/tasks/jasmine.rake"
+     "lib/jasmine/tasks/jasmine.rake",
+     "bin/jasmine"
   ]
   s.homepage = %q{http://github.com/pivotal/jasmine-ruby}
   s.rdoc_options = ["--charset=UTF-8"]
