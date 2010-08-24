@@ -18,7 +18,11 @@ module Jasmine
 
     def copy_unless_exists(relative_path, dest_path = nil)
       unless File.exist?(dest_path(relative_path))
-        File.copy(template_path(relative_path), dest_path(dest_path || relative_path))
+        if RUBY_VERSION < '1.9'
+          File.copy(template_path(relative_path), dest_path(dest_path || relative_path))
+        else
+          FileUtils.copy(template_path(relative_path), dest_path(dest_path || relative_path))
+        end
       end
     end
 
@@ -26,15 +30,17 @@ module Jasmine
       if argv[0] == 'init'
         if RUBY_VERSION < '1.9'
           require 'ftools'
-          JasminesUtil = File
+          File.makedirs('public/javascripts')
+          File.makedirs('spec/javascripts')
+          File.makedirs('spec/javascripts/support')
+          File.makedirs('spec/javascripts/helpers')
         else
           require 'fileutils'
-          JasminesUtil = FileUtils
+          FileUtils.makedirs('public/javascripts')
+          FileUtils.makedirs('spec/javascripts')
+          FileUtils.makedirs('spec/javascripts/support')
+          FileUtils.makedirs('spec/javascripts/helpers')
         end
-        JasmineUtil.makedirs('public/javascripts')
-        JasmineUtil.makedirs('spec/javascripts')
-        JasmineUtil.makedirs('spec/javascripts/support')
-        JasmineUtil.makedirs('spec/javascripts/helpers')
 
         copy_unless_exists('jasmine-example/src/Player.js', 'public/javascripts/Player.js')
         copy_unless_exists('jasmine-example/src/Song.js', 'public/javascripts/Song.js')
