@@ -26,13 +26,15 @@ module Jasmine
       if argv[0] == 'init'
         if RUBY_VERSION < '1.9'
           require 'ftools'
+          JasminesUtil = File
         else
           require 'fileutils'
+          JasminesUtil = FileUtils
         end
-        File.makedirs('public/javascripts')
-        File.makedirs('spec/javascripts')
-        File.makedirs('spec/javascripts/support')
-        File.makedirs('spec/javascripts/helpers')
+        JasmineUtil.makedirs('public/javascripts')
+        JasmineUtil.makedirs('spec/javascripts')
+        JasmineUtil.makedirs('spec/javascripts/support')
+        JasmineUtil.makedirs('spec/javascripts/helpers')
 
         copy_unless_exists('jasmine-example/src/Player.js', 'public/javascripts/Player.js')
         copy_unless_exists('jasmine-example/src/Song.js', 'public/javascripts/Song.js')
